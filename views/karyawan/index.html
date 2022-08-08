@@ -20,8 +20,23 @@
                     <th>Divisi</th>
                     <th>Pekerjaan</th>
                     <th>Deadline</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
+            <tbody>
+                {{ range .karyawan }}
+                    <tr>
+                        <td>{{ .NamaLengkap }}</td>
+                        <td>{{ .Divisi }}</td>
+                        <td>{{ .Pekerjaan }}</td>
+                        <td>{{ .Deadline }}</td>
+                        <td>
+                            <a href="/karyawan/edit?id={{.Id}}" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="/karyawan/delete?id={{.Id}}" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" class="btn btn-sm btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                {{ end }}
+            </tbody>
         </table>
     </div>
 </body>

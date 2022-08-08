@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h3>Tambah Data Karyawan</h3>
+        <h3>Ubah Data Karyawan</h3>
         <a href="/karyawan/" class="btn btn-sm btn-primary">Lihat Data</a>
         <hr/>
         {{ if .pesan }}
@@ -23,7 +23,7 @@
                 {{ .pesan }}
             </div>
         {{ end }}
-        <form action="/karyawan/add" method="post">
+        <form action="/karyawan/edit" method="post">
             <div class="form-group">
                 <label for="">Nama Lengkap</label>
                 <input type="text" name="nama_lengkap" value="{{ .karyawan.NamaLengkap }}" class="form-control {{ if .validation.NamaLengkap }} is-invalid {{ end }}">
@@ -54,7 +54,8 @@
             </div>
             <br/>
             <div class="form-group">
-                <button class="btn btn-primary btn-block" type="submit">Simpan</button>
+                <input type="hidden" name="Id" value="{{ .karyawan.Id }}">
+                <button class="btn btn-primary btn-block" type="submit">Ubah Data</button>
             </div>
         </form>
     </div>

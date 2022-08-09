@@ -14,6 +14,7 @@ func main() {
 	http.HandleFunc("/karyawan/add", karyawancontroller.Add)
 	http.HandleFunc("/karyawan/edit", karyawancontroller.Edit)
 	http.HandleFunc("/karyawan/delete", karyawancontroller.Delete)
+	http.Handle("/assets/img/", http.StripPrefix("/assets/img/", http.FileServer(http.Dir("assets/img/"))))
 
 	http.ListenAndServe(":9000", nil)
 
